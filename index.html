@@ -46,6 +46,10 @@
             strong {
                 font-size: 1.1em;
                 color: var(--color-secundario);
+<<<<<<< HEAD
+=======
+                margin: 0;
+>>>>>>> 8b7d6e3 (Initial commit)
             }
 
             header h1 {
@@ -76,7 +80,11 @@
                 max-width: 1000px;
                 margin: 0 auto;
                 background: #fff;
+<<<<<<< HEAD
                 padding: 20px;
+=======
+                padding: 1.5em;
+>>>>>>> 8b7d6e3 (Initial commit)
                 border-radius: 8px;
             }
 
@@ -88,7 +96,11 @@
             }
 
             section {
+<<<<<<< HEAD
                 padding: 3em 3em;
+=======
+                padding: 3em 4em;
+>>>>>>> 8b7d6e3 (Initial commit)
             }
 
             .android {
@@ -107,7 +119,10 @@
 
             .android li::marker {
                 color: var(--color-android);
+<<<<<<< HEAD
                 font-size: 1.5em; /* Opcional: Cambia el tamaño del punto */
+=======
+>>>>>>> 8b7d6e3 (Initial commit)
             }
 
             .ios {
@@ -126,7 +141,10 @@
 
             .ios li::marker {
                 color: var(--color-ios);
+<<<<<<< HEAD
                 font-size: 1.5em; /* Opcional: Cambia el tamaño del punto */
+=======
+>>>>>>> 8b7d6e3 (Initial commit)
             }
 
             ul {
@@ -158,7 +176,10 @@
 
             .autores {
                 display: flex;
+<<<<<<< HEAD
                 color: #fff;
+=======
+>>>>>>> 8b7d6e3 (Initial commit)
                 font-size: 0.8em;
                 opacity: 40%;
                 justify-content: space-between; /* Separa los nombres */
@@ -170,6 +191,163 @@
             footer {
                 background-color: var(--color-secundario);
             }
+<<<<<<< HEAD
+=======
+
+            .audio {
+                --UnChacked-color: hsl(0, 0%, 10%);
+                --chacked-color: hsl(26, 100%, 60%);
+                --font-color: white;
+                --chacked-font-color: var(--font-color);
+                --icon-size: 1.5em;
+                --anim-time: 0.2s;
+                --anim-scale: 0.1;
+                --base-radius: 0.8em;
+            }
+
+            .audio {
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                position: relative;
+                cursor: pointer;
+                font-size: 20px;
+                user-select: none;
+                fill: var(--font-color);
+                color: var(--font-color);
+            }
+
+            /* Hide the default checkbox */
+            .audio input {
+                display: none;
+            }
+
+            /* Base custom checkbox */
+            .checkmark {
+                background: var(--UnChacked-color);
+                border-radius: var(--base-radius);
+
+                display: flex;
+                padding: 0.5em;
+            }
+            .icon {
+                margin: auto;
+                width: var(--icon-size);
+                height: 1em;
+                filter: drop-shadow(
+                    0px 2px var(--base-radius) rgba(0, 0, 0, 0.25)
+                );
+            }
+            .name {
+                margin: 0 0.25em;
+            }
+            .Yes {
+                width: 0;
+            }
+            .name.Yes {
+                display: none;
+            }
+
+            .flex {
+                display: flex;
+            }
+
+            /* action custom checkbox */
+            .audio:hover .checkmark,
+            .audio:hover .icon,
+            .audio:hover .name {
+                transform: scale(calc(1 + var(--anim-scale)));
+            }
+
+            .audio:active .checkmark,
+            .audio:active .icon,
+            .audio:active .name {
+                transform: scale(calc(1 - var(--anim-scale) / 2));
+                border-radius: calc(var(--base-radius) * 2);
+            }
+            .checkmark::before {
+                content: "";
+                opacity: 0.5;
+                transform: scale(1);
+                border-radius: var(--base-radius);
+                position: absolute;
+                box-sizing: border-box;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+            }
+            .checkmark:hover:before {
+                background-color: hsla(0, 0%, 50%, 0.2);
+            }
+            .audio input:checked + .checkmark:before {
+                animation: boon calc(var(--anim-time)) ease;
+                animation-delay: calc(var(--anim-time) / 2);
+            }
+
+            /* When the checkbox is checked*/
+            .audio input:checked + .checkmark {
+                --UnChacked-color: var(--chacked-color);
+                fill: var(--chacked-font-color);
+                color: var(--chacked-font-color);
+            }
+
+            .audio input:checked ~ .checkmark .No {
+                width: 0;
+            }
+            .audio input:checked ~ .checkmark .name.No {
+                display: none;
+            }
+
+            .audio input:checked ~ .checkmark .Yes {
+                width: var(--icon-size);
+            }
+            .audio input:checked ~ .checkmark .name.Yes {
+                width: auto;
+                display: unset;
+            }
+
+            /*Animation*/
+            .audio,
+            .checkmark,
+            .checkmark:after,
+            .icon,
+            .checkmark .name {
+                transition: all var(--anim-time);
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: auto 175px; /* Título - Línea - Botón */
+            }
+
+            /*Unuse*/
+            @keyframes icon-rot {
+                50% {
+                    transform: rotateZ(180deg)
+                        scale(calc(1 - var(--anim-scale)));
+                    border-radius: 1em;
+                }
+                to {
+                    transform: rotate(360deg);
+                    border-radius: var(--base-radius);
+                }
+            }
+            /*Unuse*/
+            @keyframes boo {
+                80% {
+                    transform: scale(1.4);
+                }
+                99% {
+                    transform: scale(1.7);
+                    border: 2px solid var(--UnChacked-color);
+                }
+                to {
+                    transform: scale(0);
+                }
+            }
+
+>>>>>>> 8b7d6e3 (Initial commit)
             /* Responsive */
             @media (max-width: 768px) {
                 header h1 {
@@ -184,6 +362,22 @@
                 section {
                     padding: 3em 1em;
                 }
+<<<<<<< HEAD
+=======
+
+                .audio {
+                    margin: 1em auto;
+                }
+
+                .grid-container {
+                    grid-template-columns: 1fr; /* Cambia a una sola columna */
+                    text-align: center;
+                }
+
+                .container {
+                    padding: 1em;
+                }
+>>>>>>> 8b7d6e3 (Initial commit)
             }
         </style>
     </head>
@@ -191,6 +385,13 @@
         <!-- Encabezado -->
         <header>
             <h1>Sistemas Operativos Móviles</h1>
+<<<<<<< HEAD
+=======
+            <div class="autores">
+                <p>Hernandez Tellez Hector Fidel</p>
+                <p>Rivero Flores Victor Gabriel</p>
+            </div>
+>>>>>>> 8b7d6e3 (Initial commit)
         </header>
 
         <!-- Navegación -->
@@ -202,8 +403,13 @@
         </nav>
 
         <!-- Contenido Principal -->
+<<<<<<< HEAD
         <section>
             <div class="container" id="introduccion">
+=======
+        <section id="introduccion">
+            <div class="container">
+>>>>>>> 8b7d6e3 (Initial commit)
                 <h2>Un sistema operativo móvil</h2>
                 <p>
                     Un sistema operativo móvil es un software que gestiona los
@@ -325,7 +531,94 @@
         <!-- Sección iOS -->
         <section class="ios" id="ios">
             <div class="container">
+<<<<<<< HEAD
                 <h2>Introducción a iOS</h2>
+=======
+                <div class="grid-container">
+                    <h2 style="width: 100%">Introducción a iOS</h2>
+                    <label class="audio">
+                        <input type="checkbox" id="audioCheckbox" />
+                        <div class="checkmark">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon No"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512"
+                            >
+                                <path
+                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                                ></path>
+                            </svg>
+                            <p class="No name">
+                                Reproducir<path
+                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                                ></path>
+                            </p>
+                            <svg
+                                height="1em"
+                                viewBox="0 0 320 512"
+                                class="icon Yes"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                                ></path>
+                            </svg>
+                            <p class="Yes name">Pausar</p>
+                        </div>
+                    </label>
+                    <audio id="miAudio">
+                        <source src="ios.mp3" type="audio/mpeg" />
+                    </audio>
+
+                    <script>
+                        let audio = document.getElementById("miAudio");
+                        let checkbox = document.getElementById("audioCheckbox");
+
+                        // Función para actualizar el estado del checkbox según el audio
+                        function actualizarEstadoCheckbox() {
+                            checkbox.checked = !audio.paused; // Si el audio NO está pausado, el checkbox debe estar marcado
+                        }
+
+                        // Control de Play/Pausa con el checkbox
+                        checkbox.addEventListener("change", function () {
+                            if (checkbox.checked) {
+                                audio.play();
+                            } else {
+                                audio.pause();
+                            }
+                        });
+
+                        // Detectar cuando el audio se está reproduciendo y actualizar el estado
+                        audio.addEventListener(
+                            "play",
+                            actualizarEstadoCheckbox,
+                        );
+
+                        // Detectar cuando el audio se pausa manualmente o se detiene
+                        audio.addEventListener(
+                            "pause",
+                            actualizarEstadoCheckbox,
+                        );
+
+                        // Volver a reproducir solo si el checkbox sigue activado
+                        audio.addEventListener("ended", function () {
+                            if (checkbox.checked) {
+                                audio.currentTime = 0;
+                                audio.play();
+                            } else {
+                                checkbox.checked = false; // Desmarcar si el usuario NO quiere repetir
+                            }
+                        });
+
+                        // Si el usuario recarga la página, actualizar el estado correctamente
+                        window.addEventListener(
+                            "load",
+                            actualizarEstadoCheckbox,
+                        );
+                    </script>
+                </div>
+>>>>>>> 8b7d6e3 (Initial commit)
                 <ul>
                     <li>
                         <strong>Definición:</strong> Sistema operativo
@@ -432,11 +725,14 @@
         </section>
 
         <!-- Pie de Página -->
+<<<<<<< HEAD
         <footer>
             <div class="autores">
                 <p>Hernandez Tellez Hector Fidel</p>
                 <p>Rivero Flores Victor Gabriel</p>
             </div>
         </footer>
+=======
+>>>>>>> 8b7d6e3 (Initial commit)
     </body>
 </html>
