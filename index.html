@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sistemas Operativos Móviles</title>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            :root {
+                --color-primario: #71a5e2;
+                --color-secundario: #5563de;
+                --color-android: #8ac732;
+                --color-ios: #000000;
+                --fuente-titulo: "Arial", sans-serif;
+                --tamano-texto: 1.4em;
+                --tamanio-titulo: 2.3rem;
+            }
+
+            #introduccion p {
+            }
+            /* Estilos Generales */
+            body {
+                font-family: var(--fuente-titulo);
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(
+                    135deg,
+                    var(--color-primario),
+                    var(--color-secundario)
+                );
+                color: #333;
+                line-height: 1.6;
+                font-size: var(--tamano-texto);
+            }
+
+            header,
+            footer {
+                background: #fff;
+                text-align: center;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            strong {
+                font-size: 1.1em;
+                color: var(--color-secundario);
+            }
+
+            header h1 {
+                margin: 0;
+                color: var(--color-secundario);
+            }
+
+            nav {
+                background: var(--color-secundario);
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            nav a {
+                color: #fff;
+                text-decoration: none;
+                margin: 0 15px;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+            nav a:hover {
+                color: #ffd700;
+            }
+
+            /* Contenido */
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            h2 {
+                font-size: var(--tamanio-titulo);
+                color: var(--color-secundario);
+                padding-bottom: 5px;
+                margin: 0 auto;
+            }
+
+            section {
+                padding: 3em 3em;
+            }
+
+            .android {
+                background-color: var(--color-android);
+            }
+
+            .android h2 {
+                color: var(--color-android);
+                border-bottom: 3px solid var(--color-android);
+            }
+
+            .android strong {
+                color: var(--color-android);
+                filter: brightness(80%);
+            }
+
+            .android li::marker {
+                color: var(--color-android);
+                font-size: 1.5em; /* Opcional: Cambia el tamaño del punto */
+            }
+
+            .ios {
+                background-color: var(--color-ios);
+            }
+
+            .ios h2 {
+                color: var(--color-ios);
+                border-bottom: 3px solid var(--color-ios);
+            }
+
+            .ios strong {
+                color: var(--color-ios);
+                filter: brightness(80%);
+            }
+
+            .ios li::marker {
+                color: var(--color-ios);
+                font-size: 1.5em; /* Opcional: Cambia el tamaño del punto */
+            }
+
+            ul {
+                margin: 10px 0;
+                margin-bottom: 2em;
+            }
+
+            p {
+                margin: 10px 0;
+            }
+
+            /* Imágenes */
+            .image-container {
+                text-align: center;
+                margin: 20px;
+            }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .flex-row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .autores {
+                display: flex;
+                color: #fff;
+                font-size: 0.8em;
+                opacity: 40%;
+                justify-content: space-between; /* Separa los nombres */
+                max-width: 500px; /* Ajusta el ancho para no ocupar todo el header */
+                margin: 0 auto; /* Centra los nombres */
+                font-style: oblique; /* Opcional: Hace los nombres más visibles */
+            }
+
+            footer {
+                background-color: var(--color-secundario);
+            }
+            /* Responsive */
+            @media (max-width: 768px) {
+                header h1 {
+                    font-size: 1.5em;
+                }
+                nav a {
+                    margin: 0 10px;
+                }
+                .flex-row {
+                    display: block;
+                }
+                section {
+                    padding: 3em 1em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Encabezado -->
+        <header>
+            <h1>Sistemas Operativos Móviles</h1>
+        </header>
+
+        <!-- Navegación -->
+        <nav>
+            <a href="#introduccion">Introducción</a>
+            <a href="#android">Android</a>
+            <a href="#ios">iOS</a>
+            <a href="#conclusion">Conclusión</a>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <section>
+            <div class="container" id="introduccion">
+                <h2>Un sistema operativo móvil</h2>
+                <p>
+                    Un sistema operativo móvil es un software que gestiona los
+                    recursos de un dispositivo móvil (como smartphones o
+                    tablets) y permite la ejecución de aplicaciones. Su
+                    propósito es facilitar la interacción entre el hardware y el
+                    usuario, además de gestionar tareas como la conectividad, la
+                    memoria y la seguridad. Dio inicio con sistemas como
+                    <strong>Symbian</strong> y <strong>Palm OS</strong> cuando
+                    fueron lanzados en 1998.
+                </p>
+                <div class="image-container">
+                    <img
+                        src="https://globalitec.gt/web/image/78926/drfrtfrdfghrdegerdgb.png"
+                        alt="Imagen representativa de sistemas operativos"
+                    />
+                </div>
+                <p>
+                    Actualmente, <strong>Android</strong> e
+                    <strong>iOS</strong> son los sistemas que dominan el
+                    mercado.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección Android -->
+        <section class="android" id="android">
+            <div class="container">
+                <h2>Introducción a Android</h2>
+                <div class="flex-row">
+                    <ul>
+                        <li>
+                            <strong>Definición:</strong> Sistema operativo
+                            desarrollado por Google, de código abierto y
+                            utilizado por múltiples fabricantes (Samsung,
+                            Xiaomi, Huawei, etc.).
+                        </li>
+                        <li>
+                            <strong>Propósito:</strong> Gestionar hardware,
+                            ejecutar aplicaciones y ofrecer una interfaz
+                            amigable para el usuario.
+                        </li>
+                        <li>
+                            <strong>Evolución histórica:</strong> Lanzado en
+                            2008; destaca por su flexibilidad y adaptabilidad a
+                            diferentes dispositivos.
+                        </li>
+                    </ul>
+                    <div class="image-container">
+                        <img
+                            src="https://images.vexels.com/media/users/3/139556/isolated/preview/1718a076e29822051df8bcf8b5ce1124-logotipo-de-android.png"
+                            alt="Imagen representativa de Android"
+                        />
+                    </div>
+                </div>
+
+                <h2>Características de Android</h2>
+                <ul>
+                    <li>
+                        <strong>Interfaz de usuario:</strong> Altamente
+                        personalizable (widgets, temas, launchers) y adaptable a
+                        diferentes tamaños de pantalla.
+                    </li>
+                    <li>
+                        <strong>Seguridad:</strong> Permisos granularizados y
+                        Google Play Protect para detectar malware.
+                    </li>
+                    <li>
+                        <strong>Ecosistema:</strong> Compatible con una amplia
+                        gama de dispositivos y marcas, con integración a
+                        servicios de Google.
+                    </li>
+                    <li>
+                        <strong>Actualizaciones:</strong> Fragmentación: algunos
+                        dispositivos reciben actualizaciones tardías debido a la
+                        variedad de fabricantes.
+                    </li>
+                    <li>
+                        <strong>Multitarea:</strong> Funciones como multiventana
+                        y pantalla dividida.
+                    </li>
+                </ul>
+
+                <h2>Arquitectura de Android</h2>
+                <ul>
+                    <li>
+                        <strong>Núcleo (Kernel):</strong> Basado en Linux, lo
+                        que permite mayor flexibilidad.
+                    </li>
+                    <li>
+                        <strong>Middleware:</strong> APIs abiertas y ampliamente
+                        utilizadas (Android SDK).
+                    </li>
+                    <li>
+                        <strong>Interfaz de usuario:</strong> Personalizable y
+                        adaptable a las necesidades de cada fabricante.
+                    </li>
+                </ul>
+
+                <h2>Cuota de mercado y experiencia</h2>
+                <p>
+                    <strong>Cuota de mercado:</strong> Android domina con más
+                    del 70% del mercado global gracias a la variedad de
+                    dispositivos y precios accesibles.
+                </p>
+                <p>
+                    <strong>Ventajas:</strong> Flexibilidad, variedad de
+                    dispositivos y mayor personalización.<br />
+                    <strong>Desventajas:</strong> Fragmentación y
+                    actualizaciones lentas en algunos dispositivos.
+                </p>
+                <p>
+                    <strong>Experiencia de usuario:</strong> Altamente
+                    personalizable y adaptable a diversas necesidades.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección iOS -->
+        <section class="ios" id="ios">
+            <div class="container">
+                <h2>Introducción a iOS</h2>
+                <ul>
+                    <li>
+                        <strong>Definición:</strong> Sistema operativo
+                        desarrollado por Apple, exclusivo para dispositivos como
+                        iPhone, iPad y iPod Touch.
+                    </li>
+                    <li>
+                        <strong>Propósito:</strong> Gestionar hardware, ejecutar
+                        aplicaciones y ofrecer una interfaz amigable para el
+                        usuario.
+                    </li>
+                    <li>
+                        <strong>Evolución histórica:</strong> Lanzado en 2007
+                        con el primer iPhone, reconocido por su diseño y
+                        seguridad.
+                    </li>
+                </ul>
+                <div class="image-container">
+                    <img
+                        src="https://logos-world.net/wp-content/uploads/2023/06/iOS-Symbol.png"
+                        alt="Imagen representativa de iOS"
+                    />
+                </div>
+
+                <h2>Características de iOS</h2>
+                <ul>
+                    <li>
+                        <strong>Interfaz de usuario:</strong> Diseño
+                        minimalista, uniforme, con iconos redondeados y
+                        animaciones fluidas.
+                    </li>
+                    <li>
+                        <strong>Seguridad:</strong> Encriptación de datos,
+                        autenticación biométrica (Face ID y Touch ID) y un
+                        estricto control en App Store.
+                    </li>
+                    <li>
+                        <strong>Ecosistema:</strong> Integración perfecta con
+                        otros dispositivos Apple (Mac, Apple Watch, AirPods).
+                    </li>
+                    <li>
+                        <strong>Actualizaciones:</strong> Soporte prolongado
+                        para dispositivos antiguos y actualizaciones simultáneas
+                        para todos los compatibles.
+                    </li>
+                    <li>
+                        <strong>Multitarea:</strong> Limitada pero eficiente,
+                        como en el caso del modo pantalla dividida en iPad.
+                    </li>
+                </ul>
+
+                <h2>Arquitectura de iOS</h2>
+                <ul>
+                    <li>
+                        <strong>Núcleo (Kernel):</strong> Basado en XNU, un
+                        híbrido entre microkernel y monolítico.
+                    </li>
+                    <li>
+                        <strong>Middleware:</strong> APIs robustas para
+                        desarrolladores (Cocoa Touch).
+                    </li>
+                    <li>
+                        <strong>Interfaz de usuario:</strong> Uniforme en todos
+                        los dispositivos.
+                    </li>
+                </ul>
+
+                <h2>Cuota de mercado y experiencia</h2>
+                <p>
+                    <strong>Cuota de mercado:</strong> Alrededor del 25-30%, con
+                    alta rentabilidad gracias al valor de los dispositivos
+                    Apple.
+                </p>
+                <p>
+                    <strong>Ventajas:</strong> Mayor seguridad, integración con
+                    el ecosistema Apple y actualizaciones rápidas y
+                    uniformes.<br />
+                    <strong>Desventajas:</strong> Menor personalización y mayor
+                    costo de los dispositivos.
+                </p>
+                <p>
+                    <strong>Experiencia de usuario:</strong> Uniforme y
+                    consistente en todos los dispositivos.
+                </p>
+            </div>
+        </section>
+
+        <!-- Conclusión -->
+        <section>
+            <div class="container" id="conclusion">
+                <h2>9. Conclusión</h2>
+                <p>
+                    Android e iOS son los sistemas operativos móviles más
+                    importantes del mundo, cada uno con sus propias fortalezas.
+                    Android sobresale por su flexibilidad, personalización y
+                    variedad de dispositivos, mientras que iOS destaca por su
+                    seguridad, integración y experiencia de usuario uniforme.
+                    Ambos continuarán compitiendo en innovación, especialmente
+                    en áreas como inteligencia artificial, realidad aumentada y
+                    conectividad 5G, donde la privacidad y la seguridad serán
+                    aspectos clave en su desarrollo futuro.
+                </p>
+            </div>
+        </section>
+
+        <!-- Pie de Página -->
+        <footer>
+            <div class="autores">
+                <p>Hernandez Tellez Hector Fidel</p>
+                <p>Rivero Flores Victor Gabriel</p>
+            </div>
+        </footer>
+    </body>
+</html>
