@@ -297,6 +297,11 @@
                 display: flex;
                 padding: 0.5em;
             }
+
+            .otros .audio {
+                --UnChacked-color: hsl(283, 100%, 50%);
+                --chacked-color: hsl(26, 100%, 60%);
+            }
             .icon {
                 margin: auto;
                 width: var(--icon-size);
@@ -645,53 +650,6 @@
                         <audio id="miAudio">
                             <source src="ios.mp3" type="audio/mpeg" />
                         </audio>
-
-                        <script>
-                            let audio = document.getElementById("miAudio");
-                            let checkbox = document.getElementById("audioCheckbox");
-
-                            // Función para actualizar el estado del checkbox según el audio
-                            function actualizarEstadoCheckbox() {
-                                checkbox.checked = !audio.paused; // Si el audio NO está pausado, el checkbox debe estar marcado
-                            }
-
-                            // Control de Play/Pausa con el checkbox
-                            checkbox.addEventListener("change", function () {
-                                if (checkbox.checked) {
-                                    audio.play();
-                                } else {
-                                    audio.pause();
-                                }
-                            });
-
-                            // Detectar cuando el audio se está reproduciendo y actualizar el estado
-                            audio.addEventListener(
-                                "play",
-                                actualizarEstadoCheckbox,
-                            );
-
-                            // Detectar cuando el audio se pausa manualmente o se detiene
-                            audio.addEventListener(
-                                "pause",
-                                actualizarEstadoCheckbox,
-                            );
-
-                            // Volver a reproducir solo si el checkbox sigue activado
-                            audio.addEventListener("ended", function () {
-                                if (checkbox.checked) {
-                                    audio.currentTime = 0;
-                                    audio.play();
-                                } else {
-                                    checkbox.checked = false; // Desmarcar si el usuario NO quiere repetir
-                                }
-                            });
-
-                            // Si el usuario recarga la página, actualizar el estado correctamente
-                            window.addEventListener(
-                                "load",
-                                actualizarEstadoCheckbox,
-                            );
-                        </script>
                     </div>
                     <ul>
                         <li>
@@ -787,7 +745,43 @@
                     <h1>Otros</h1>
                 </button>
                 <article class="content">
-                    <h2>Otros sistemas operativos móviles</h2>
+                    <div class="grid-container">
+                        <h2 style="width: 100%">Otros sistemas operativos móviles</h2>
+                        <label class="audio">
+                            <input type="checkbox" id="audioCheckbox" />
+                            <div class="checkmark">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="icon No"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 384 512"
+                                >
+                                    <path
+                                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                                    ></path>
+                                </svg>
+                                <p class="No name">
+                                    Reproducir<path
+                                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                                    ></path>
+                                </p>
+                                <svg
+                                    height="1em"
+                                    viewBox="0 0 320 512"
+                                    class="icon Yes"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                                    ></path>
+                                </svg>
+                                <p class="Yes name">Pausar</p>
+                            </div>
+                        </label>
+                        <audio id="miAudio">
+                            <source src="otrosSistemas.mp3" type="audio/mpeg" />
+                        </audio>
+                    </div>
                         <ul>
                             <li>
                                 <strong>Definición:</strong> Sistemas operativos alternativos que, aunque no dominan el mercado, han ofrecido soluciones innovadoras o se han enfocado en nichos específicos.
@@ -846,6 +840,15 @@
                         <div class="image-container">
                             <img
                                 src="https://www.solvusoft.com/file-extensions/images/software/large/149_symbian-os.png"
+                                alt="Symbian OS"
+                            >
+                        </div>
+                        <li>
+                            <strong>Palm OS (1996)</strong> – Sistema operativo desarrollado por Palm, Inc. para asistentes personales digitales (PDA) y posteriormente adaptado a teléfonos inteligentes. Se destacó por su facilidad de uso y su integración con pantallas táctiles y stylus. No se hizo popular en la era moderna de los smartphones debido a la falta de evolución tecnológica y la competencia con sistemas más avanzados como iOS y Android.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://assets.sbnation.com/assets/1161622/palm-os-5-300.jpg"
                                 alt="Symbian OS"
                             >
                         </div>
@@ -959,6 +962,45 @@
                     }
                 });
             }
+                document.addEventListener("DOMContentLoaded", function () {
+                    let audios = document.querySelectorAll("audio");
+                    let checkboxes = document.querySelectorAll(".audio input[type='checkbox']");
+
+                    audios.forEach((audio, index) => {
+                        let checkbox = checkboxes[index];
+
+                        // Función para actualizar el estado del checkbox según el audio
+                        function actualizarEstadoCheckbox() {
+                            checkbox.checked = !audio.paused;
+                        }
+
+                        // Control de Play/Pausa con el checkbox
+                        checkbox.addEventListener("change", function () {
+                            if (checkbox.checked) {
+                                audio.play().catch(error => console.error("Error al reproducir el audio:", error));
+                            } else {
+                                audio.pause();
+                            }
+                        });
+
+                        // Detectar cuando el audio se reproduce o pausa
+                        audio.addEventListener("play", actualizarEstadoCheckbox);
+                        audio.addEventListener("pause", actualizarEstadoCheckbox);
+
+                        // Volver a reproducir solo si el checkbox sigue activado
+                        audio.addEventListener("ended", function () {
+                            if (checkbox.checked) {
+                                audio.currentTime = 0;
+                                audio.play();
+                            } else {
+                                checkbox.checked = false; // Desmarcar si el usuario NO quiere repetir
+                            }
+                        });
+
+                        // Si el usuario recarga la página, actualizar el estado correctamente
+                        actualizarEstadoCheckbox();
+                    });
+                });
         </script>
     </body>
 </html>
