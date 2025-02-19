@@ -13,9 +13,12 @@
                 --color-secundario: #5563de;
                 --color-android: #8ac732;
                 --color-ios: #000000;
+                --color-otros: #bf71ff;
                 --fuente-titulo: "Arial", sans-serif;
                 --tamano-texto: 1.4em;
+                --tamano-texto-movil: 1.2em;
                 --tamanio-titulo: 2.3rem;
+                --tamanio-boton: 3em;
             }
 
             #introduccion p {
@@ -78,7 +81,7 @@
                 margin: 0 auto;
                 background: #fff;
                 padding: 1.5em;
-                border-radius: 8px;
+                border-radius: 1em;
             }
 
             h2 {
@@ -92,8 +95,49 @@
                 padding: 3em 4em;
             }
 
+            .collapsible {
+                background-color: #a3c3f8;
+                color: #444;
+                cursor: pointer;
+                padding: 18px;
+                width: 100%;
+                border: none;
+                text-align: left;
+                outline: none;
+                font-size: 15px;
+                margin-bottom: 1em;
+                border-radius: 1em;
+                transition: all 0.3s ease-out;
+            }
+
+            .collapsible:hover{
+                background-color: color-mix(in srgb, var(--color-primario), white 20%);
+                transition: all 0.2s ease-out;
+            }
+
+            .content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.7s ease-out;
+            }
+
             .android {
                 background-color: var(--color-android);
+            }
+
+            .android .collapsible {
+                background-color: #dfffb3;
+            }
+
+            .android .collapsible:hover {
+                background-color: #ccff86;
+            }
+
+            .android h1 {
+                font-size: var(--tamanio-boton);
+                color: var(--color-android);
+                padding-bottom: 5px;
+                margin: 0 auto;
             }
 
             .android h2 {
@@ -114,6 +158,21 @@
                 background-color: var(--color-ios);
             }
 
+            .ios .collapsible {
+                background-color: #d1d1d1;
+            }
+
+            .ios .collapsible:hover {
+                background-color: #b2b2b2;
+            }
+
+            .ios h1 {
+                font-size: var(--tamanio-boton);
+                color: var(--color-ios);
+                padding-bottom: 5px;
+                margin: 0 auto;
+            }
+
             .ios h2 {
                 color: var(--color-ios);
                 border-bottom: 3px solid var(--color-ios);
@@ -126,6 +185,39 @@
 
             .ios li::marker {
                 color: var(--color-ios);
+            }
+
+            .otros {
+                background-color: var(--color-otros);
+            }
+
+            .otros .collapsible {
+                background-color: #e9d0fe;
+            }
+
+            .otros .collapsible:hover {
+                background-color: #e2bfff;
+            }
+
+            .otros h1 {
+                font-size: var(--tamanio-boton);
+                color: var(--color-otros);
+                padding-bottom: 5px;
+                margin: 0 auto;
+            }
+
+            .otros h2 {
+                color: var(--color-otros);
+                border-bottom: 3px solid var(--color-otros);
+            }
+
+            .otros strong {
+                color: var(--color-otros);
+                filter: brightness(80%);
+            }
+
+            .otros li::marker {
+                color: var(--color-otros);
             }
 
             ul {
@@ -296,6 +388,12 @@
                 grid-template-columns: auto 175px; /* Título - Línea - Botón */
             }
 
+            .lista-otros {
+                li {
+                    margin-bottom: 1em;
+                }
+            }
+
             /*Unuse*/
             @keyframes icon-rot {
                 50% {
@@ -324,6 +422,9 @@
 
             /* Responsive */
             @media (max-width: 768px) {
+                body {
+                    font-size:var(--tamano-texto-movil);
+                }
                 header h1 {
                     font-size: 1.5em;
                 }
@@ -349,6 +450,10 @@
                 .container {
                     padding: 1em;
                 }
+
+                .content {
+                    transition: max-height 1.5s ease-out;
+                }
             }
         </style>
     </head>
@@ -367,6 +472,7 @@
             <a href="#introduccion">Introducción</a>
             <a href="#android">Android</a>
             <a href="#ios">iOS</a>
+            <a href="#otros">Otros</a>
             <a href="#conclusion">Conclusión</a>
         </nav>
 
@@ -401,288 +507,458 @@
         <!-- Sección Android -->
         <section class="android" id="android">
             <div class="container">
-                <h2>Introducción a Android</h2>
-                <div class="flex-row">
+                <button type="button" class="collapsible">
+                    <h1>Android</h1>
+                </button>
+                <article class="content"">
+                    <h2>Introducción a Android</h2>
+                    <div class="flex-row">
+                        <ul>
+                            <li>
+                                <strong>Definición:</strong> Sistema operativo
+                                desarrollado por Google, de código abierto y
+                                utilizado por múltiples fabricantes (Samsung,
+                                Xiaomi, Huawei, etc.).
+                            </li>
+                            <li>
+                                <strong>Propósito:</strong> Gestionar hardware,
+                                ejecutar aplicaciones y ofrecer una interfaz
+                                amigable para el usuario.
+                            </li>
+                            <li>
+                                <strong>Evolución histórica:</strong> Lanzado en
+                                2008; destaca por su flexibilidad y
+                                adaptabilidad a diferentes dispositivos.
+                            </li>
+                        </ul>
+                        <div class="image-container">
+                            <img
+                                src="https://images.vexels.com/media/users/3/139556/isolated/preview/1718a076e29822051df8bcf8b5ce1124-logotipo-de-android.png"
+                                alt="Imagen representativa de Android"
+                            />
+                        </div>
+                    </div>
+
+                    <h2>Características de Android</h2>
                     <ul>
                         <li>
-                            <strong>Definición:</strong> Sistema operativo
-                            desarrollado por Google, de código abierto y
-                            utilizado por múltiples fabricantes (Samsung,
-                            Xiaomi, Huawei, etc.).
+                            <strong>Interfaz de usuario:</strong> Altamente
+                            personalizable (widgets, temas, launchers) y
+                            adaptable a diferentes tamaños de pantalla.
                         </li>
                         <li>
-                            <strong>Propósito:</strong> Gestionar hardware,
-                            ejecutar aplicaciones y ofrecer una interfaz
-                            amigable para el usuario.
+                            <strong>Seguridad:</strong> Permisos granularizados
+                            y Google Play Protect para detectar malware.
                         </li>
                         <li>
-                            <strong>Evolución histórica:</strong> Lanzado en
-                            2008; destaca por su flexibilidad y adaptabilidad a
-                            diferentes dispositivos.
+                            <strong>Ecosistema:</strong> Compatible con una
+                            amplia gama de dispositivos y marcas, con
+                            integración a servicios de Google.
+                        </li>
+                        <li>
+                            <strong>Actualizaciones:</strong> Fragmentación:
+                            algunos dispositivos reciben actualizaciones tardías
+                            debido a la variedad de fabricantes.
+                        </li>
+                        <li>
+                            <strong>Multitarea:</strong> Funciones como
+                            multiventana y pantalla dividida.
                         </li>
                     </ul>
-                    <div class="image-container">
-                        <img
-                            src="https://images.vexels.com/media/users/3/139556/isolated/preview/1718a076e29822051df8bcf8b5ce1124-logotipo-de-android.png"
-                            alt="Imagen representativa de Android"
-                        />
-                    </div>
-                </div>
 
-                <h2>Características de Android</h2>
-                <ul>
-                    <li>
-                        <strong>Interfaz de usuario:</strong> Altamente
-                        personalizable (widgets, temas, launchers) y adaptable a
-                        diferentes tamaños de pantalla.
-                    </li>
-                    <li>
-                        <strong>Seguridad:</strong> Permisos granularizados y
-                        Google Play Protect para detectar malware.
-                    </li>
-                    <li>
-                        <strong>Ecosistema:</strong> Compatible con una amplia
-                        gama de dispositivos y marcas, con integración a
-                        servicios de Google.
-                    </li>
-                    <li>
-                        <strong>Actualizaciones:</strong> Fragmentación: algunos
-                        dispositivos reciben actualizaciones tardías debido a la
-                        variedad de fabricantes.
-                    </li>
-                    <li>
-                        <strong>Multitarea:</strong> Funciones como multiventana
-                        y pantalla dividida.
-                    </li>
-                </ul>
+                    <h2>Arquitectura de Android</h2>
+                    <ul>
+                        <li>
+                            <strong>Núcleo (Kernel):</strong> Basado en Linux,
+                            lo que permite mayor flexibilidad.
+                        </li>
+                        <li>
+                            <strong>Middleware:</strong> APIs abiertas y
+                            ampliamente utilizadas (Android SDK).
+                        </li>
+                        <li>
+                            <strong>Interfaz de usuario:</strong> Personalizable
+                            y adaptable a las necesidades de cada fabricante.
+                        </li>
+                    </ul>
 
-                <h2>Arquitectura de Android</h2>
-                <ul>
-                    <li>
-                        <strong>Núcleo (Kernel):</strong> Basado en Linux, lo
-                        que permite mayor flexibilidad.
-                    </li>
-                    <li>
-                        <strong>Middleware:</strong> APIs abiertas y ampliamente
-                        utilizadas (Android SDK).
-                    </li>
-                    <li>
-                        <strong>Interfaz de usuario:</strong> Personalizable y
-                        adaptable a las necesidades de cada fabricante.
-                    </li>
-                </ul>
-
-                <h2>Cuota de mercado y experiencia</h2>
-                <p>
-                    <strong>Cuota de mercado:</strong> Android domina con más
-                    del 70% del mercado global gracias a la variedad de
-                    dispositivos y precios accesibles.
-                </p>
-                <p>
-                    <strong>Ventajas:</strong> Flexibilidad, variedad de
-                    dispositivos y mayor personalización.<br />
-                    <strong>Desventajas:</strong> Fragmentación y
-                    actualizaciones lentas en algunos dispositivos.
-                </p>
-                <p>
-                    <strong>Experiencia de usuario:</strong> Altamente
-                    personalizable y adaptable a diversas necesidades.
-                </p>
+                    <h2>Cuota de mercado y experiencia</h2>
+                    <p>
+                        <strong>Cuota de mercado:</strong> Android domina con
+                        más del 70% del mercado global gracias a la variedad de
+                        dispositivos y precios accesibles.
+                    </p>
+                    <p>
+                        <strong>Ventajas:</strong> Flexibilidad, variedad de
+                        dispositivos y mayor personalización.<br />
+                        <strong>Desventajas:</strong> Fragmentación y
+                        actualizaciones lentas en algunos dispositivos.
+                    </p>
+                    <p>
+                        <strong>Experiencia de usuario:</strong> Altamente
+                        personalizable y adaptable a diversas necesidades.
+                    </p>
+                </article>
             </div>
         </section>
 
         <!-- Sección iOS -->
         <section class="ios" id="ios">
             <div class="container">
-                <div class="grid-container">
-                    <h2 style="width: 100%">Introducción a iOS</h2>
-                    <label class="audio">
-                        <input type="checkbox" id="audioCheckbox" />
-                        <div class="checkmark">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon No"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 384 512"
-                            >
-                                <path
-                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
-                                ></path>
-                            </svg>
-                            <p class="No name">
-                                Reproducir<path
-                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
-                                ></path>
-                            </p>
-                            <svg
-                                height="1em"
-                                viewBox="0 0 320 512"
-                                class="icon Yes"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
-                                ></path>
-                            </svg>
-                            <p class="Yes name">Pausar</p>
+                <button type="button" class="collapsible">
+                    <h1>iOS</h1>
+                </button>
+                <article class="content">
+                    <div class="grid-container">
+                        <h2 style="width: 100%">Introducción a iOS</h2>
+                        <label class="audio">
+                            <input type="checkbox" id="audioCheckbox" />
+                            <div class="checkmark">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="icon No"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 384 512"
+                                >
+                                    <path
+                                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                                    ></path>
+                                </svg>
+                                <p class="No name">
+                                    Reproducir<path
+                                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                                    ></path>
+                                </p>
+                                <svg
+                                    height="1em"
+                                    viewBox="0 0 320 512"
+                                    class="icon Yes"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                                    ></path>
+                                </svg>
+                                <p class="Yes name">Pausar</p>
+                            </div>
+                        </label>
+                        <audio id="miAudio">
+                            <source src="ios.mp3" type="audio/mpeg" />
+                        </audio>
+
+                        <script>
+                            let audio = document.getElementById("miAudio");
+                            let checkbox = document.getElementById("audioCheckbox");
+
+                            // Función para actualizar el estado del checkbox según el audio
+                            function actualizarEstadoCheckbox() {
+                                checkbox.checked = !audio.paused; // Si el audio NO está pausado, el checkbox debe estar marcado
+                            }
+
+                            // Control de Play/Pausa con el checkbox
+                            checkbox.addEventListener("change", function () {
+                                if (checkbox.checked) {
+                                    audio.play();
+                                } else {
+                                    audio.pause();
+                                }
+                            });
+
+                            // Detectar cuando el audio se está reproduciendo y actualizar el estado
+                            audio.addEventListener(
+                                "play",
+                                actualizarEstadoCheckbox,
+                            );
+
+                            // Detectar cuando el audio se pausa manualmente o se detiene
+                            audio.addEventListener(
+                                "pause",
+                                actualizarEstadoCheckbox,
+                            );
+
+                            // Volver a reproducir solo si el checkbox sigue activado
+                            audio.addEventListener("ended", function () {
+                                if (checkbox.checked) {
+                                    audio.currentTime = 0;
+                                    audio.play();
+                                } else {
+                                    checkbox.checked = false; // Desmarcar si el usuario NO quiere repetir
+                                }
+                            });
+
+                            // Si el usuario recarga la página, actualizar el estado correctamente
+                            window.addEventListener(
+                                "load",
+                                actualizarEstadoCheckbox,
+                            );
+                        </script>
+                    </div>
+                    <ul>
+                        <li>
+                            <strong>Definición:</strong> Sistema operativo
+                            desarrollado por Apple, exclusivo para dispositivos como
+                            iPhone, iPad y iPod Touch.
+                        </li>
+                        <li>
+                            <strong>Propósito:</strong> Gestionar hardware, ejecutar
+                            aplicaciones y ofrecer una interfaz amigable para el
+                            usuario.
+                        </li>
+                        <li>
+                            <strong>Evolución histórica:</strong> Lanzado en 2007
+                            con el primer iPhone, reconocido por su diseño y
+                            seguridad.
+                        </li>
+                    </ul>
+                    <div class="image-container">
+                        <img
+                            src="https://logos-world.net/wp-content/uploads/2023/06/iOS-Symbol.png"
+                            alt="Imagen representativa de iOS"
+                        />
+                    </div>
+
+                    <h2>Características de iOS</h2>
+                    <ul>
+                        <li>
+                            <strong>Interfaz de usuario:</strong> Diseño
+                            minimalista, uniforme, con iconos redondeados y
+                            animaciones fluidas.
+                        </li>
+                        <li>
+                            <strong>Seguridad:</strong> Encriptación de datos,
+                            autenticación biométrica (Face ID y Touch ID) y un
+                            estricto control en App Store.
+                        </li>
+                        <li>
+                            <strong>Ecosistema:</strong> Integración perfecta con
+                            otros dispositivos Apple (Mac, Apple Watch, AirPods).
+                        </li>
+                        <li>
+                            <strong>Actualizaciones:</strong> Soporte prolongado
+                            para dispositivos antiguos y actualizaciones simultáneas
+                            para todos los compatibles.
+                        </li>
+                        <li>
+                            <strong>Multitarea:</strong> Limitada pero eficiente,
+                            como en el caso del modo pantalla dividida en iPad.
+                        </li>
+                    </ul>
+
+                    <h2>Arquitectura de iOS</h2>
+                    <ul>
+                        <li>
+                            <strong>Núcleo (Kernel):</strong> Basado en XNU, un
+                            híbrido entre microkernel y monolítico.
+                        </li>
+                        <li>
+                            <strong>Middleware:</strong> APIs robustas para
+                            desarrolladores (Cocoa Touch).
+                        </li>
+                        <li>
+                            <strong>Interfaz de usuario:</strong> Uniforme en todos
+                            los dispositivos.
+                        </li>
+                    </ul>
+
+                    <h2>Cuota de mercado y experiencia</h2>
+                    <p>
+                        <strong>Cuota de mercado:</strong> Alrededor del 25-30%, con
+                        alta rentabilidad gracias al valor de los dispositivos
+                        Apple.
+                    </p>
+                    <p>
+                        <strong>Ventajas:</strong> Mayor seguridad, integración con
+                        el ecosistema Apple y actualizaciones rápidas y
+                        uniformes.<br />
+                        <strong>Desventajas:</strong> Menor personalización y mayor
+                        costo de los dispositivos.
+                    </p>
+                    <p>
+                        <strong>Experiencia de usuario:</strong> Uniforme y
+                        consistente en todos los dispositivos.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="otros" id="otros">
+            <div class="container">
+                <button type="button" class="collapsible">
+                    <h1>Otros</h1>
+                </button>
+                <article class="content">
+                    <h2>Otros sistemas operativos móviles</h2>
+                        <ul>
+                            <li>
+                                <strong>Definición:</strong> Sistemas operativos alternativos que, aunque no dominan el mercado, han ofrecido soluciones innovadoras o se han enfocado en nichos específicos.
+                            </li>
+                            <li>
+                                <strong>Propósito:</strong> Proporcionar alternativas a Android e iOS, con enfoques en seguridad, privacidad o personalización.
+                            </li>
+                            <li>
+                                <strong>Evolución histórica:</strong> Algunos sistemas como Symbian, BlackBerry OS y Windows Phone marcaron hitos en la historia de los sistemas operativos móviles, aunque hoy en día han perdido relevancia.
+                            </li>
+                        </ul>
+                        <div class="image-container">
+                            <img
+                                src="https://www.eldiario.net/noticias/2015/2015_12/nt151221/f_2015-12-21_6.jpg"
+                                alt="Imagen representativa de otros sistemas operativos"
+                            />
                         </div>
-                    </label>
-                    <audio id="miAudio">
-                        <source src="ios.mp3" type="audio/mpeg" />
-                    </audio>
 
-                    <script>
-                        let audio = document.getElementById("miAudio");
-                        let checkbox = document.getElementById("audioCheckbox");
+                    <h2>Características de otros sistemas</h2>
+                    <ul>
+                        <li>
+                            <strong>Interfaz de usuario:</strong> Varía según el sistema, desde interfaces altamente personalizables hasta enfoques minimalistas y enfocados en productividad.
+                        </li>
+                        <li>
+                            <strong>Seguridad:</strong> Algunos sistemas, como BlackBerry OS, fueron pioneros en seguridad empresarial, mientras que otros, como Sailfish OS, se enfocan en la privacidad del usuario.
+                        </li>
+                        <li>
+                            <strong>Ecosistema:</strong> Limitado en comparación con Android e iOS, pero con integraciones específicas para ciertos mercados o necesidades.
+                        </li>
+                        <li>
+                            <strong>Actualizaciones:</strong> Dependen del fabricante o comunidad de desarrolladores, lo que puede resultar en soporte irregular.
+                        </li>
+                        <li>
+                            <strong>Multitarea:</strong> Algunos sistemas, como Windows Phone, ofrecían enfoques innovadores en multitarea, aunque con limitaciones en comparación con Android e iOS.
+                        </li>
+                    </ul>
 
-                        // Función para actualizar el estado del checkbox según el audio
-                        function actualizarEstadoCheckbox() {
-                            checkbox.checked = !audio.paused; // Si el audio NO está pausado, el checkbox debe estar marcado
-                        }
+                    <h2>Arquitectura de otros sistemas</h2>
+                    <ul>
+                        <li>
+                            <strong>Núcleo (Kernel):</strong> Varía según el sistema, desde núcleos basados en Linux (como Sailfish OS) hasta soluciones propietarias (como BlackBerry OS).
+                        </li>
+                        <li>
+                            <strong>Middleware:</strong> APIs específicas para desarrolladores, aunque con menor adopción en comparación con Android e iOS.
+                        </li>
+                        <li>
+                            <strong>Interfaz de usuario:</strong> Diseños únicos y diferenciados, como la interfaz de mosaicos dinámicos de Windows Phone.
+                        </li>
+                    </ul>
 
-                        // Control de Play/Pausa con el checkbox
-                        checkbox.addEventListener("change", function () {
-                            if (checkbox.checked) {
-                                audio.play();
-                            } else {
-                                audio.pause();
-                            }
-                        });
+                    <h2>Lista de sistemas operativos móviles</h2>
+                    <ul class="lista-otros">
+                        <li>
+                            <strong>Symbian OS (1997)</strong> – Uno de los primeros sistemas operativos móviles en dominar el mercado, desarrollado por Psion y luego adquirido por Nokia. Se destacó por su eficiencia en dispositivos con hardware limitado. No logró mantenerse debido a la falta de innovación en su interfaz y la llegada de smartphones más avanzados con iOS y Android.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://www.solvusoft.com/file-extensions/images/software/large/149_symbian-os.png"
+                                alt="Symbian OS"
+                            >
+                        </div>
+                        <li>
+                            <strong>BlackBerry OS (1999)</strong> – Creado por Research In Motion (RIM), fue pionero en seguridad y correo electrónico móvil. Su teclado físico y su enfoque en la productividad lo hicieron popular en el mundo empresarial. Cayó en desuso debido a la lenta adopción de pantallas táctiles y la falta de aplicaciones en comparación con iOS y Android.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://blog.phonehouse.es/wp-content/uploads/2009/10/Blackberry-OS51.jpg"
+                                alt="BlackBerry OS"
+                            >
+                        </div>
+                        <li>
+                            <strong>Windows Phone (2010)</strong> – Sistema desarrollado por Microsoft con una interfaz de mosaicos dinámicos y fluidez en el rendimiento. Buscó competir con iOS y Android, pero fracasó por la falta de aplicaciones clave y el poco apoyo de los desarrolladores.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://i.blogs.es/766949/windows_phone_7/650_1200.jpg"
+                                alt="Windows Phone"
+                            >
+                        </div>
+                        <li>
+                            <strong>Firefox OS (2013)</strong> – Sistema basado en tecnologías web, desarrollado por Mozilla, con la idea de ofrecer un entorno móvil más abierto y accesible. No logró consolidarse debido a la falta de adopción de fabricantes y a la poca demanda del mercado.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://www.consumer.es/app/uploads/2019/07/img_firefoxos.portada.jpg"
+                                alt="Firefox OS"
+                            >
+                        </div>
+                        <li>
+                            <strong>Tizen OS (2012)</strong> – Un sistema basado en Linux desarrollado por Samsung en conjunto con la Fundación Linux. Su objetivo era reducir la dependencia de Android, pero se usó más en wearables y televisores que en teléfonos inteligentes, donde no logró captar el interés del público.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2022/01/tizen-samsung-z-2581251.jpg"
+                                alt="Tizen OS"
+                            >
+                        </div>
+                        <li>
+                            <strong>Sailfish OS (2013)</strong> – Creado por exdesarrolladores de Nokia, es un sistema basado en Linux con un enfoque en la privacidad y la seguridad. No se popularizó debido a la falta de aplicaciones y el poco apoyo de fabricantes de hardware.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://i.ytimg.com/vi/Kc9MXDGFNbA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB18LM-k5dAw3J0DtddIOMkRiQvdw"
+                                alt="Sailfish OS"
+                            >
+                        </div>
+                        <li>
+                            <strong>KaiOS (2017)</strong> – Un sistema operativo ligero basado en Firefox OS, orientado a teléfonos básicos con funciones inteligentes, como WhatsApp y Google Assistant. Se ha mantenido en el mercado de gama baja, pero no ha competido directamente con Android o iOS debido a su enfoque limitado.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://isenacode.com/wp-content/uploads/2018/06/kaios-google-sistema-operativo.jpg"
+                                alt="KaiOS"
+                            >
+                        </div>
+                        <li>
+                            <strong>Ubuntu Touch (2013)</strong> – Sistema operativo desarrollado por Canonical con el objetivo de ofrecer una experiencia convergente entre móviles y PC. Se destacó por su enfoque en gestos y privacidad. No logró popularidad debido a la falta de aplicaciones, la escasa adopción de fabricantes y la dificultad para competir con los ecosistemas consolidados de Android e iOS.
+                        </li>
+                        <div class="image-container">
+                            <img
+                                src="https://i.ytimg.com/vi/5UNR3ijO7XY/maxresdefault.jpg"
+                                alt="Ubuntu ouch"
+                            >
+                        </div>
+                    </ul>
 
-                        // Detectar cuando el audio se está reproduciendo y actualizar el estado
-                        audio.addEventListener(
-                            "play",
-                            actualizarEstadoCheckbox,
-                        );
-
-                        // Detectar cuando el audio se pausa manualmente o se detiene
-                        audio.addEventListener(
-                            "pause",
-                            actualizarEstadoCheckbox,
-                        );
-
-                        // Volver a reproducir solo si el checkbox sigue activado
-                        audio.addEventListener("ended", function () {
-                            if (checkbox.checked) {
-                                audio.currentTime = 0;
-                                audio.play();
-                            } else {
-                                checkbox.checked = false; // Desmarcar si el usuario NO quiere repetir
-                            }
-                        });
-
-                        // Si el usuario recarga la página, actualizar el estado correctamente
-                        window.addEventListener(
-                            "load",
-                            actualizarEstadoCheckbox,
-                        );
-                    </script>
-                </div>
-                <ul>
-                    <li>
-                        <strong>Definición:</strong> Sistema operativo
-                        desarrollado por Apple, exclusivo para dispositivos como
-                        iPhone, iPad y iPod Touch.
-                    </li>
-                    <li>
-                        <strong>Propósito:</strong> Gestionar hardware, ejecutar
-                        aplicaciones y ofrecer una interfaz amigable para el
-                        usuario.
-                    </li>
-                    <li>
-                        <strong>Evolución histórica:</strong> Lanzado en 2007
-                        con el primer iPhone, reconocido por su diseño y
-                        seguridad.
-                    </li>
-                </ul>
-                <div class="image-container">
-                    <img
-                        src="https://logos-world.net/wp-content/uploads/2023/06/iOS-Symbol.png"
-                        alt="Imagen representativa de iOS"
-                    />
-                </div>
-
-                <h2>Características de iOS</h2>
-                <ul>
-                    <li>
-                        <strong>Interfaz de usuario:</strong> Diseño
-                        minimalista, uniforme, con iconos redondeados y
-                        animaciones fluidas.
-                    </li>
-                    <li>
-                        <strong>Seguridad:</strong> Encriptación de datos,
-                        autenticación biométrica (Face ID y Touch ID) y un
-                        estricto control en App Store.
-                    </li>
-                    <li>
-                        <strong>Ecosistema:</strong> Integración perfecta con
-                        otros dispositivos Apple (Mac, Apple Watch, AirPods).
-                    </li>
-                    <li>
-                        <strong>Actualizaciones:</strong> Soporte prolongado
-                        para dispositivos antiguos y actualizaciones simultáneas
-                        para todos los compatibles.
-                    </li>
-                    <li>
-                        <strong>Multitarea:</strong> Limitada pero eficiente,
-                        como en el caso del modo pantalla dividida en iPad.
-                    </li>
-                </ul>
-
-                <h2>Arquitectura de iOS</h2>
-                <ul>
-                    <li>
-                        <strong>Núcleo (Kernel):</strong> Basado en XNU, un
-                        híbrido entre microkernel y monolítico.
-                    </li>
-                    <li>
-                        <strong>Middleware:</strong> APIs robustas para
-                        desarrolladores (Cocoa Touch).
-                    </li>
-                    <li>
-                        <strong>Interfaz de usuario:</strong> Uniforme en todos
-                        los dispositivos.
-                    </li>
-                </ul>
-
-                <h2>Cuota de mercado y experiencia</h2>
-                <p>
-                    <strong>Cuota de mercado:</strong> Alrededor del 25-30%, con
-                    alta rentabilidad gracias al valor de los dispositivos
-                    Apple.
-                </p>
-                <p>
-                    <strong>Ventajas:</strong> Mayor seguridad, integración con
-                    el ecosistema Apple y actualizaciones rápidas y
-                    uniformes.<br />
-                    <strong>Desventajas:</strong> Menor personalización y mayor
-                    costo de los dispositivos.
-                </p>
-                <p>
-                    <strong>Experiencia de usuario:</strong> Uniforme y
-                    consistente en todos los dispositivos.
-                </p>
+                    <h2>Cuota de mercado y experiencia</h2>
+                    <p>
+                        <strong>Cuota de mercado:</strong> Menos del 1% del mercado global, con sistemas como KaiOS ganando terreno en dispositivos de gama baja y mercados emergentes.
+                    </p>
+                    <p>
+                        <strong>Ventajas:</strong> Enfoques innovadores, mayor privacidad y personalización en algunos casos.<br />
+                        <strong>Desventajas:</strong> Falta de aplicaciones, soporte limitado y menor adopción por parte de los fabricantes.
+                    </p>
+                    <p>
+                        <strong>Experiencia de usuario:</strong> Depende del sistema, pero generalmente se enfoca en nichos específicos, como productividad o privacidad.
+                    </p>
+                </article>
             </div>
         </section>
 
         <!-- Conclusión -->
         <section>
             <div class="container" id="conclusion">
-                <h2>9. Conclusión</h2>
+                <h2>Conclusión</h2>
                 <p>
-                    Android e iOS son los sistemas operativos móviles más
-                    importantes del mundo, cada uno con sus propias fortalezas.
-                    Android sobresale por su flexibilidad, personalización y
-                    variedad de dispositivos, mientras que iOS destaca por su
-                    seguridad, integración y experiencia de usuario uniforme.
-                    Ambos continuarán compitiendo en innovación, especialmente
-                    en áreas como inteligencia artificial, realidad aumentada y
-                    conectividad 5G, donde la privacidad y la seguridad serán
-                    aspectos clave en su desarrollo futuro.
+                    Android e iOS son los sistemas operativos móviles más importantes del mundo, cada uno con sus propias fortalezas. Android sobresale por su flexibilidad, personalización y variedad de dispositivos, mientras que iOS destaca por su seguridad, integración y experiencia de usuario uniforme. En general, los sistemas operativos móviles seguirán evolucionando, impulsados por avances en inteligencia artificial, conectividad y seguridad, adaptándose a las necesidades de los usuarios y a las nuevas tendencias tecnológicas.
                 </p>
             </div>
         </section>
 
         <!-- Pie de Página -->
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.transitionDuration = "0.5s";
+                        content.style.maxHeight = null;
+                    } else {
+                      if(window.innerWidth < 768){
+                        content.style.transitionDuration = "1.5s";
+                      }
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
